@@ -10,10 +10,10 @@ mongoose
 .catch((err) => console.log(err));
 
 
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
-var peopleRouter = require('./routes/people');
-var platformRouter = require('./routes/platform');
+var watchRouter = require('./routes/watch');
+var shampooRouter = require('./routes/shampoo');
+var wineRouter = require('./routes/wine');
+var waterRouter = require('./routes/water');
 
 var app = express();
 
@@ -27,10 +27,12 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', indexRouter);
-app.use('/users', usersRouter);
-app.use('/people', peopleRouter);
-app.use('/platform', platformRouter);
+
+
+app.use('/watch', watchRouter);
+app.use('/shampoo', shampooRouter);
+app.use('/wine', wineRouter);
+app.use('/water', waterRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
